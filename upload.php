@@ -9,7 +9,6 @@
       if ($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
-        echo '<a href="rickard.php"><button>OK</button></a>';
       } else {
         echo "File is not an image.";
         $uploadOk = 0;
@@ -36,6 +35,7 @@
   } else {
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
       echo "The file " . htmlspecialchars(basename($_FILES["file"]["name"])) . " was uploaded.";
+      echo '<a href="rickard.php"><button>OK</button></a>';
     } else {
       echo "There was an error uploading your file.";
     }
