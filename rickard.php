@@ -7,6 +7,10 @@
   <title>Document</title>
 </head>
 <body>
-  
+<header><?php include "./includes/header.php" ?></header>
+
+<main></main>
+
+<footer></footer>
 </body>
 </html>

@@ -12,6 +12,7 @@ error_reporting(E_ALL);
     <title>Zoo Project</title>
 </head>
 <body>
+<header><?php include "./includes/header.php" ?></header>
 
 <form enctype="multipart/form-data" action="index.php" method="POST">
     <label for="selCategory">Select Category</label>
