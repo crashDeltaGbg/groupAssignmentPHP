@@ -12,7 +12,7 @@
 
 <main>
   <h1>File Upload</h1>
-  <form action="upload.php" method="post" enctype="multipart/form-data">
+  <form action="uploads/upload.php" method="post" enctype="multipart/form-data">
     <label for="file">Upload an image file:</label>
     <input type="file" name="file" id="file">
     <input type="submit" value="Upload">
