@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>File Upload - Rickard</title>
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
@@ -12,9 +12,9 @@
 
 <main>
   <h1>File Upload</h1>
-  <form action="./uploads/upload.php" method="post" enctype="multipart/form-data">
-    <label for="file">Upload a file:</label>
-    <input type="file" name="fiel" id="file">
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    <label for="file">Upload an image file:</label>
+    <input type="file" name="file" id="file">
     <input type="submit" value="Upload">
   </form>
 </main>
