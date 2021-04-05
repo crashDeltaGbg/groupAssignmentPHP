@@ -18,28 +18,28 @@
   if (file_exists($target_file)) {
     echo "The file already exists on the server.";
     $uploadOk = 0;
-    echo '<a href="rickard.php"><button>OK</button></a>';
+    echo '<br><a href="rickard.php"><button>OK</button></a>';
   }
 
   if ($_FILES["file"]["size"] > 500000) {
     echo "This image weighs too heavily.";
-    echo '<a href="rickard.php"><button>OK</button></a>';
+    echo '<br><a href="rickard.php"><button>OK</button></a>';
     $uploadOk = 0;
   }
 
   if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "svg" && $imageFileType != "gif") {
     echo "You must only upload image type files, i.e. .jpg/.jpeg, .png, .svg or .gif.";
     $uploadOk = 0;
-    echo '<a href="rickard.php"><button>OK</button></a>';
+    echo '<br><a href="rickard.php"><button>OK</button></a>';
   }
 
   if ($uploadOk == 0) {
     echo "Your file was not uploaded.";
-    echo '<a href="rickard.php"><button>OK</button></a>';
+    echo '<br><a href="rickard.php"><button>OK</button></a>';
   } else {
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
       echo "The file " . htmlspecialchars(basename($_FILES["file"]["name"])) . " was uploaded.";
-      echo '<a href="rickard.php"><button>OK</button></a>';
+      echo '<br><a href="rickard.php"><button>OK</button></a>';
     } else {
       echo "There was an error uploading your file.";
     }
