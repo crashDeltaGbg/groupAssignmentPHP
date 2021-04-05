@@ -42,5 +42,6 @@
       echo '<br><a href="rickard.php"><button>OK</button></a>';
     } else {
       echo "There was an error uploading your file.";
+      echo '<br><a href="rickard.php"><button>OK</button></a>';
     }
   }
