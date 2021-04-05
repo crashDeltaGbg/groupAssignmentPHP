@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 <header><?php include "./includes/header.php" ?></header>
 
 <main>
-<form enctype="multipart/form-data" action="index.php" method="POST">
+<form class="fullForm" enctype="multipart/form-data" action="index.php" method="POST">
     <label for="selCategory">Select Category</label>
     <select name="selCategory" id="category">
         <option value="category1"></option>
@@ -27,11 +27,11 @@ error_reporting(E_ALL);
 
     <label for="searchWord">Search Database</label>
     <input type="text" name="searchWord">
-    <input type="submit" name="search_button" value="Sök"/>
+    <input class="btn" type="submit" name="search_button" value="Sök"/>
 
     <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
     <input type="file" name="fileUpload" id="fu" />
-    <input type="submit" name="submit_button" value="Ladda upp fil" />
+    <input class="btn" type="submit" name="submit_button" value="Ladda upp fil" />
 </form>
 
 <?php
