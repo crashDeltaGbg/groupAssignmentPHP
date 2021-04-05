@@ -30,10 +30,6 @@ error_reporting(E_ALL);
     <label for="searchWord">Search Database</label>
     <input type="text" name="searchWord">
     <input class="btn" type="submit" name="search_button" value="Sök"/>
-
-    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-    <input type="file" name="fileUpload" id="fu" />
-    <input class="btn" type="submit" name="submit_button" value="Ladda upp fil" />
 </form>
 
 <?php
