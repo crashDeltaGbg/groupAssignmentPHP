@@ -1,6 +1,6 @@
 # Bidragsrapport Rickard Yxelflod
 
-## Fredag 1/4
+## Torsdag 1/4
 
 Skapat github-repo och bjudit in de andra i gruppen
 
@@ -11,3 +11,4 @@ Skapat webhook: github - discord
 Skapat index.css och stajlat lite
 Skapat header.php med navigation
 Skapat footer.php
+Skapat rickard.php samt upload.php och arbetat med att ladda upp filer
