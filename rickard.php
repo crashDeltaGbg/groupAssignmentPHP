@@ -10,7 +10,14 @@
 <body>
 <header><?php include "./includes/header.php" ?></header>
 
-<main></main>
+<main>
+  <h1>File Upload</h1>
+  <form action="./uploads/upload.php" method="post" enctype="multipart/form-data">
+    <label for="file">Upload a file:</label>
+    <input type="file" name="fiel" id="file">
+    <input type="submit" value="Upload">
+  </form>
+</main>
 
 <footer><?php include "./includes/footer.php" ?></footer>
 </body>

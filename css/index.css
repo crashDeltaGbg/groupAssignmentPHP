@@ -27,3 +27,7 @@ ul#nav {
 ul#nav li {
 	display: inline-block;
 }
+
+#blockColorblindContent {
+	display: none;
+}
