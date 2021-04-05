@@ -5,10 +5,14 @@ body {
 	margin: 0;
 }
 
+footer,
 header,
-main,
+main {
+	padding: 1rem 2rem;
+}
+
 footer {
-	padding: 2rem;
+	text-align: center;
 }
 
 main {

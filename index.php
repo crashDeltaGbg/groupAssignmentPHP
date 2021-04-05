@@ -39,6 +39,6 @@ error_reporting(E_ALL);
 echo "Hello, World!";
 ?>
 </main>
-<footer></footer>
+<footer><?php include "./includes/footer.php" ?></footer>
 </body>
 </html>
