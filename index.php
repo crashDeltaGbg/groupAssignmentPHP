@@ -15,6 +15,7 @@ error_reporting(E_ALL);
 <body>
 <header><?php include "./includes/header.php" ?></header>
 
+<main>
 <form enctype="multipart/form-data" action="index.php" method="POST">
     <label for="selCategory">Select Category</label>
     <select name="selCategory" id="category">
@@ -37,5 +38,7 @@ error_reporting(E_ALL);
 
 echo "Hello, World!";
 ?>
+</main>
+<footer></footer>
 </body>
 </html>

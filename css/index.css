@@ -1,3 +1,20 @@
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0;
+}
+
+header,
+main,
+footer {
+	padding: 2rem;
+}
+
+main {
+	flex-grow: 1;
+}
+
 ul#nav {
 	list-style-type: none;
 	padding: 0;
