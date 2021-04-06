@@ -4,7 +4,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$dbh = new PDO('mysql:host=localhost;dbname=zoo; port=8022,charset =UTF8',"zooAdmin", "jesus7");
+$dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8',"user1", "1234");
 $animalsQuery ="
 SELECT 
 animals.id,
@@ -13,14 +13,14 @@ animals.category,
 animals.birthday
 FROM animals
 ";
-$animals=$db->query($animalsQuery);
-if(issey($_GET['animal'])){
+$animals=$dbh->query($animalsQuery);
+if(isset($_GET['animal'])){
     $animalQuery = "
     {$animalsQuery}
     WHERE animals.id = :animal_id
     ";
-    $animal = $db->prepare($animalQuery);
-    $animal->execute(['animal_id' => $_GET['animal']]);
+    $animal = $dbh->prepare($animalQuery);
+    $animal->execute(['animal_id' => $_POST['animal']]);
     $selectedAnimal = $animal->fetch(PDO::FETCH_ASSOC);
     //var_dump($selectedUser);
 }
@@ -34,7 +34,7 @@ if(issey($_GET['animal'])){
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-<form action="db.php" method="get">
+<form action="db.php" method="POST">
 <select name="animal">
 <option value="">Choose a animal</option>
 
