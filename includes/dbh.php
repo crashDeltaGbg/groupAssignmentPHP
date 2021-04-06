@@ -3,7 +3,7 @@ $host = 'localhost';
 $db   = 'zoo';
 $user = 'user1';
 $password = '1234';
-$charset = 'UTF8';
+$charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -16,3 +16,5 @@ try {
 } catch (\PDOException $e) {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+?>
+
