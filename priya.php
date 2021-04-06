@@ -20,7 +20,7 @@
 <option value="Mört">Mört</option>
 <option value="Tordyvel">Tordyvel</option>
 </select><br>
-<input type="submit" name="submit" value="inserted">
+<input type="submit" name="submit" value="select">
 </form>
 </main>
 <footer><?php include "./includes/footer.php" ?></footer>
