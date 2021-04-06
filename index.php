@@ -16,8 +16,10 @@ error_reporting(E_ALL);
 <header><?php include "./includes/header.php" ?></header>
 
 <main>
+   
     
 <form class="fullForm" action="index.php" method="POST">
+
     <label for="selCategory">Select Category</label>
     <select name="selCategory" id="category">
         <option value="category1">Cat1</option>
