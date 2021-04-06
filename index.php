@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 <header><?php include "./includes/header.php" ?></header>
 
 <main>
-    <?php include "./includes/dbh.php"; ?>
+   
 <form class="fullForm" enctype="multipart/form-data" action="index.php" method="POST">
     <label for="selCategory">Select Category</label>
     <select name="selCategory" id="category">
