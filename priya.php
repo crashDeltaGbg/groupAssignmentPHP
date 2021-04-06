@@ -13,7 +13,7 @@
 <form class="fullForm" enctype="multipart/form-data" action="db.php" method="POST">
 <label> Dropdownlist Animals:</label>
 <select name="animalNamn" id="name">
-<option value="">Choose a animal</option>
+<option value="">Choose an animal</option>
 <option value="Älg">Älg</option>
 <option value="Grå Jako">Grå Jako</option>
 <option value="Gädda">Gädda</option>
