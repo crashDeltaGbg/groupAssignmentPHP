@@ -27,6 +27,7 @@ $categories = $dbh->query($categoryQuery);
 
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,9 +35,9 @@ $categories = $dbh->query($categoryQuery);
     <title>Zoo Project</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
-<body>
-<header><?php include "./includes/header.php" ?></header>
 
+<body>
+    <header><?php include "./includes/header.php" ?></header>
 <main>
    
 <form class="search" action="index.php" method="POST" id="search">
@@ -57,7 +58,7 @@ $categories = $dbh->query($categoryQuery);
     
     <input class="btn" type="submit" name="search_button" value="Sök">
 </form>
-<!-- code for the dropdown -->
+
 
 
 
@@ -91,25 +92,26 @@ $statement->execute(array(
 $result = $statement->fetchAll();
 
 // testing that query works
-if ($result) {
-    echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
-    foreach ($result as $key => $animals) {
-    echo "<tr>
-            <td>" . $key . "</td>
-            <td>" . $animals['name'] . "</td>
-            <td>" . $animals['category'] . "</td>
-            <td>" . $animals['birthday'] . "</td>
+
+
+            // rendering query into table
+            if ($result) {
+                echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th scope='col'>Birthday</th></tr></thead><tbody>";
+                foreach ($result as $key => $animals) {
+                    echo "<tr>
+            <td data-label='#'>" . $key . "</td>
+            <td data-label='Name'>" . $animals['name'] . "</td>
+            <td data-label='Category'>" . $animals['category'] . "</td>
+            <td data-label='Birthday'>" . $animals['birthday'] . "</td>
+
         </tr>";
-    }
-    echo "</tbody></table>";
-} elseif ($search == null) {
-    echo "Searchfield is empty!";
-} else {
-    echo "Animal not found, try again";
-}
-?>
-</div>
-</main>
-<footer><?php include "./includes/footer.php" ?></footer>
+                }
+                echo "</tbody></table>";
+            }
+            ?>
+        </div>
+    </main>
+    <footer><?php include "./includes/footer.php" ?></footer>
 </body>
+
 </html>

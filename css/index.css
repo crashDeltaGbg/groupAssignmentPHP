@@ -78,12 +78,15 @@ input,
 select {
 	margin-bottom: 1em;
 }
-
+div.resultsContainer {
+	width: 75%;
+}
 table.styledTable {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 	border: 2px solid #ffc7f0;
 	background-color: #fff6c7;
-	width: 400px;
+	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
 	margin: auto;
@@ -92,6 +95,10 @@ table.styledTable td,
 table.styledTable th {
 	border: 1px solid #aaaaaa;
 	padding: 3px 2px;
+}
+table th {
+	font-size: 0.5em;
+	text-transform: uppercase;
 }
 table.styledTable tbody td {
 	font-size: 13px;
@@ -111,4 +118,35 @@ table.styledTable thead th {
 }
 table.styledTable thead th:first-child {
 	border-left: none;
+}
+@media screen and (max-width: 600px) {
+	table.styledTable {
+		border: 0;
+	}
+	table thead {
+		border: none;
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+	table tr {
+		border-bottom: 3px solid #ddd;
+		display: block;
+		margin-bottom: 0.625em;
+	}
+	table td {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		font-size: 0.8em;
+		text-align: right;
+	}
+	table td::before {
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
 }
