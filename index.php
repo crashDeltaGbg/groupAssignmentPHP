@@ -38,7 +38,7 @@ $categories = $dbh->query($categoryQuery);
         }
         ?>
     </select><br>
-    <input type="submit" name="submit" vlaue="Choose options">
+    <input type="submit" name="submit" value="Choose options">
     <input class="btn" type="submit" name="search_button" value="Sök">
 </form>
 <!-- code for the dropdown -->
