@@ -49,9 +49,6 @@ $categories = $dbh->query($categoryQuery);
           echo 'Please select the value.';
         }
       }
-      
-        
-      
       ?>
 </main>
 <footer><?php include "./includes/footer.php" ?></footer>

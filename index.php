@@ -38,13 +38,21 @@ $categories = $dbh->query($categoryQuery);
         }
         ?>
     </select><br>
+    <input type="submit" name="submit" vlaue="Choose options">
     <input class="btn" type="submit" name="search_button" value="Sök">
 </form>
+<!-- code for the dropdown -->
 
-<!-- code for the drop-down-->
 <?php
-$categoryQuery = "SELECT category FROM animals GROUP BY category";
-?>
+      if(isset($_POST['submit'])){
+       if(!empty($_POST['category'])) {
+          $selected = $_POST['category'];
+          echo 'You have chosen: ' . $selected;
+        } else {
+          echo 'Please select the value.';
+        }
+      }
+      ?>
 
 <div class="resultsContainer">
 <!-- code for the search-function -->
