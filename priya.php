@@ -37,8 +37,22 @@ $categories = $dbh->query($categoryQuery);
       
 
 </select><br>
+<input type="submit" name="submit" vlaue="Choose options">
 
 </form>
+<?php
+      if(isset($_POST['submit'])){
+       if(!empty($_POST['category'])) {
+          $selected = $_POST['category'];
+          echo 'You have chosen: ' . $selected;
+        } else {
+          echo 'Please select the value.';
+        }
+      }
+      
+        
+      
+      ?>
 </main>
 <footer><?php include "./includes/footer.php" ?></footer>
 </body>
