@@ -21,3 +21,6 @@ Försökt få kopplingen till databasen att fungera
 
 Arbetat med bilder
 Löst problemet med kopplingen till databasen under handledning
+Buggfixar
+Formaterat kod
+Jobbat med styling
