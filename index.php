@@ -41,27 +41,25 @@ $categories = $dbh->query($categoryQuery);
     <input type="submit" name="submit" value="Choose options">
     <input class="btn" type="submit" name="search_button" value="Sök">
 </form>
-<!-- code for the dropdown -->
-
-<?php
-      if(isset($_POST['submit'])){
-       if(!empty($_POST['category'])) {
-          $selected = $_POST['category'];
-          echo 'You have chosen: ' . $selected;
-        } else {
-          echo 'Please select the value.';
-        }
-      }
-      ?>
 
 <div class="resultsContainer">
+<?php
+    /*if(isset($_POST['submit'])){
+        if(!empty($_POST['category'])) {
+            $selected = $_POST['category'];
+            echo 'You have chosen: ' . $selected;
+        } else {
+            echo 'Please select a value.';
+        }
+    }*/
+?>
 <!-- code for the search-function -->
 <?php
-    if (isset($_POST['search_button'])){
-        $search = $_POST['searchWord'];}
-    else {
+    if (isset($_POST['search_button'])) {
+        $search = $_POST['searchWord'];
+    } else {
         $search = null;
-}
+    }
 // testing what is in the variable $search, will delete when finished
 // var_dump($search);
 

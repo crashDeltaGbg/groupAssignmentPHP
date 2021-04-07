@@ -23,4 +23,4 @@ Arbetat med bilder
 Löst problemet med kopplingen till databasen under handledning
 Buggfixar
 Formaterat kod
-Jobbat med styling
+Jobbat mer med styling
