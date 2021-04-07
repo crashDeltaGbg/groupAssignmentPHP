@@ -26,6 +26,7 @@ $categories = $dbh->query($categoryQuery);
 <main> <h1>Dropdown</h1>
 <form class="fullForm" enctype="multipart/form-data" action="priya.php" method="POST">
 <label> Dropdownlist Animals:</label>
+
  <select name="category">
         <option value="">All</option>
         <?php
@@ -34,6 +35,7 @@ $categories = $dbh->query($categoryQuery);
         }
         ?>
       
+
 </select><br>
 
 </form>

@@ -1,3 +1,9 @@
+<?php
+// Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +18,7 @@
 
 <main>
   <h1>File Upload</h1>
-  <form action="upload.php" method="post" enctype="multipart/form-data">
+  <form action="uploads/upload.php" method="post" enctype="multipart/form-data">
     <label for="file">Upload an image file:</label>
     <input type="file" name="file" id="file">
     <input type="submit" value="Upload">

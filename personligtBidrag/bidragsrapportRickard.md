@@ -12,3 +12,7 @@ Skapat index.css och stajlat lite
 Skapat header.php med navigation
 Skapat footer.php
 Skapat rickard.php samt upload.php och arbetat med att ladda upp filer
+
+## Tisdag 6/4
+
+Försökt få kopplingen till databasen att funka
