@@ -58,11 +58,11 @@ $categoryQuery = "SELECT category FROM animals GROUP BY category";
 // testing what is in the variable $search, will delete when finished
 // var_dump($search);
 
-$dbh = new PDO('mysql:host=localhost;dbname=zoo;port=3307', "user1", "1234");
+// $dbh = new PDO('mysql:host=localhost;dbname=zoo;port=3307', "user1", "1234");
 
 //PDO + query for name and category-search
 $query = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :search, '%')";
-echo "<table><thead><tr><th>#<th>Name<th>Category<th>Birthday<tbody>";
+echo "<table class='styledTable'><thead><tr><th>#<th>Name<th>Category<th>Birthday<tbody>";
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
 $statement->execute(array(
     ':search' => $_POST['searchWord'],
@@ -70,12 +70,17 @@ $statement->execute(array(
 $result = $statement->fetchAll();
 
 // testing that query works
-foreach ($result as $key => $animals) {
+if($result){
+    foreach ($result as $key => $animals) {
     echo "<tr>
             <td>" . $key . "
             <td>" . $animals['name'] . "
             <td>" . $animals['category'] . "
             <td>" . $animals['birthday'];
+}} elseif($search == null) {
+    echo "Searchfield is empty!";
+} else {
+    echo "Animal not found, try again";
 }
 ?>
 </div>

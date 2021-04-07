@@ -26,7 +26,7 @@ header {
 }
 
 main {
-  background-color: beige;
+  background-color: #f5f5dc;
   flex-grow: 1;
 }
 
@@ -59,4 +59,38 @@ li.animalsObject {
 
 img.animal-photo {
   border-radius: 125px;
+}
+
+table.styledTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid #ffc7f0;
+  background-color: #fff6c7;
+  width: 400px;
+  text-align: left;
+  border-collapse: collapse;
+  margin: auto;
+}
+table.styledTable td,
+table.styledTable th {
+  border: 1px solid #aaaaaa;
+  padding: 3px 2px;
+}
+table.styledTable tbody td {
+  font-size: 13px;
+}
+table.styledTable tr:nth-child(even) {
+  background: #eee5b9;
+}
+table.styledTable thead {
+  background: #ffc7f0;
+}
+table.styledTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  border-left: 2px solid #e9b5db;
+}
+table.styledTable thead th:first-child {
+  border-left: none;
 }
