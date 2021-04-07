@@ -18,30 +18,20 @@ error_reporting(E_ALL);
 
 <main>
    
-    
-<!--<form class="fullForm" action="index.php" method="POST">
-
-    <label for="selCategory">Select Category</label>
-    <select name="selCategory" id="category">
-        <option value="category1">Cat1</option>
-        <option value="category2">Cat2</option>
-        <option value="category3">Cat3</option>
-        <option value="category4">Cat4</option>
-    </select>
-</form>-->
 <form class="search" action="index.php" method="POST">
     <label for="searchWord">Search For Name or Category</label>
     <input type="text" name="searchWord">
     <input class="btn" type="submit" name="search_button" value="Sök">
-    <label> Dropdownlist Animals:</label>
+    <label for="category">Drop-down list Animals:</label>
 
  <select name="category">
-        <option value="">All</option>
-        <?php
+    <option value="">All</option>
+    <?php
         foreach ($categories as $category) {
           echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
         }
-        ?>
+    ?>
+</select>
 </form>
 <!-- code for the drop-down-->
 <?php

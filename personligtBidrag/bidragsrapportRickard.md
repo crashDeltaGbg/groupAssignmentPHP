@@ -15,4 +15,9 @@ Skapat rickard.php samt upload.php och arbetat med att ladda upp filer
 
 ## Tisdag 6/4
 
-Försökt få kopplingen till databasen att funka
+Försökt få kopplingen till databasen att fungera
+
+## Onsdag 7/4
+
+Arbetat med bilder
+Löst problemet med kopplingen till databasen under handledning
