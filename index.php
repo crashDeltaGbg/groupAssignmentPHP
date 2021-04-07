@@ -36,9 +36,10 @@ error_reporting(E_ALL);
 <!-- code for the drop-down-->
 <?php
 $categoryQuery = "SELECT category FROM animals GROUP BY category";
-?>
 
+?>
 $categories = $dbh->query($categoryQuery);
+
 <div class="resultsContainer">
 <!-- code for the search-function -->
 <?php
@@ -48,12 +49,13 @@ $categories = $dbh->query($categoryQuery);
         $search = null;
 }
 // testing what is in the variable $search, will delete when finished
-var_dump($search);
+// var_dump($search);
 
 $dbh = new PDO('mysql:host=localhost;dbname=zoo;port=3307', "user1", "1234");
 
 //PDO + query for name and category-search
 $query = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :search, '%')";
+echo "<table><thead><tr><th>#<th>Name<th>Category<th>Birthday<tbody>";
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
 $statement->execute(array(
     ':search' => $_POST['searchWord'],
@@ -62,8 +64,11 @@ $result = $statement->fetchAll();
 
 // testing that query works
 foreach ($result as $key => $animals) {
-    echo "
-        <p>" . $key . $animals['name'] . $animals['category'] . $animals['birthday'] . "</p>";
+    echo "<tr>
+            <td>" . $key . "
+            <td>" . $animals['name'] . "
+            <td>" . $animals['category'] . "
+            <td>" . $animals['birthday'];
 }
 ?>
 </div>
