@@ -4,6 +4,14 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// code for the drop-down
+
+$dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=3307', "user1", "1234");
+
+$categoryQuery = "SELECT category FROM animals GROUP BY category";
+
+$categories = $dbh->query($categoryQuery);
+
 ?>
 <html lang="en">
 <head>
@@ -18,37 +26,26 @@ error_reporting(E_ALL);
 
 <main>
    
-    
-<!--<form class="fullForm" action="index.php" method="POST">
-
-    <label for="selCategory">Select Category</label>
-    <select name="selCategory" id="category">
-        <option value="category1">Cat1</option>
-        <option value="category2">Cat2</option>
-        <option value="category3">Cat3</option>
-        <option value="category4">Cat4</option>
-    </select>
-</form>-->
-<form class="search" action="index.php" method="POST">
-    <label for="searchWord">Search For Name or Category</label>
-    <input type="text" name="searchWord">
-    <input class="btn" type="submit" name="search_button" value="Sök">
-    <label> Dropdownlist Animals:</label>
-
- <select name="category">
+<form class="search" action="index.php" method="POST" id="search">
+    <label for="searchWord">Search For Name or Category:</label>
+    <input type="text" name="searchWord"><br>
+    <label for="category">Drop-down list Animals:</label>
+    <select name="category">
         <option value="">All</option>
         <?php
         foreach ($categories as $category) {
-          echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
+            echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
         }
         ?>
+    </select><br>
+    <input class="btn" type="submit" name="search_button" value="Sök">
 </form>
+
 <!-- code for the drop-down-->
 <?php
 $categoryQuery = "SELECT category FROM animals GROUP BY category";
 ?>
 
-$categories = $dbh->query($categoryQuery);
 <div class="resultsContainer">
 <!-- code for the search-function -->
 <?php
@@ -58,12 +55,13 @@ $categories = $dbh->query($categoryQuery);
         $search = null;
 }
 // testing what is in the variable $search, will delete when finished
-var_dump($search);
+// var_dump($search);
 
-$dbh = new PDO('mysql:host=localhost;dbname=zoo;port=3307', "user1", "1234");
+// $dbh = new PDO('mysql:host=localhost;dbname=zoo;port=3307', "user1", "1234");
 
 //PDO + query for name and category-search
 $query = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :search, '%')";
+// echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
 $statement->execute(array(
     ':search' => $_POST['searchWord'],
@@ -71,9 +69,21 @@ $statement->execute(array(
 $result = $statement->fetchAll();
 
 // testing that query works
-foreach ($result as $key => $animals) {
-    echo "
-        <p>" . $key . $animals['name'] . $animals['category'] . $animals['birthday'] . "</p>";
+if ($result) {
+    echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
+    foreach ($result as $key => $animals) {
+    echo "<tr>
+            <td>" . $key . "</td>
+            <td>" . $animals['name'] . "</td>
+            <td>" . $animals['category'] . "</td>
+            <td>" . $animals['birthday'] . "</td>
+        </tr>";
+    }
+    echo "</tbody></table>";
+} elseif ($search == null) {
+    echo "Searchfield is empty!";
+} else {
+    echo "Animal not found, try again";
 }
 ?>
 </div>
