@@ -66,7 +66,7 @@ $categoryQuery = "SELECT category FROM animals GROUP BY category";
 
 //PDO + query for name and category-search
 $query = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :search, '%')";
-echo "<table class='styledTable'><thead><tr><th>#<th>Name<th>Category<th>Birthday<tbody>";
+// echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
 $statement->execute(array(
     ':search' => $_POST['searchWord'],
@@ -74,14 +74,18 @@ $statement->execute(array(
 $result = $statement->fetchAll();
 
 // testing that query works
-if($result){
+if ($result) {
+    echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
     foreach ($result as $key => $animals) {
     echo "<tr>
-            <td>" . $key . "
-            <td>" . $animals['name'] . "
-            <td>" . $animals['category'] . "
-            <td>" . $animals['birthday'];
-}} elseif($search == null) {
+            <td>" . $key . "</td>
+            <td>" . $animals['name'] . "</td>
+            <td>" . $animals['category'] . "</td>
+            <td>" . $animals['birthday'] . "</td>
+        </tr>";
+    }
+    echo "</tbody></table>";
+} elseif ($search == null) {
     echo "Searchfield is empty!";
 } else {
     echo "Animal not found, try again";
