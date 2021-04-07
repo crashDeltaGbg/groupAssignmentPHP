@@ -4,6 +4,14 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// code for the drop-down
+
+$dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=3307', "user1", "1234");
+
+$categoryQuery = "SELECT category FROM animals GROUP BY category";
+
+$categories = $dbh->query($categoryQuery);
+
 ?>
 <html lang="en">
 <head>
@@ -33,12 +41,7 @@ error_reporting(E_ALL);
     ?>
 </select>
 </form>
-<!-- code for the drop-down-->
-<?php
-$categoryQuery = "SELECT category FROM animals GROUP BY category";
-?>
 
-$categories = $dbh->query($categoryQuery);
 <div class="resultsContainer">
 <!-- code for the search-function -->
 <?php
