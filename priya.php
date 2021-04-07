@@ -8,9 +8,11 @@ $dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=3307', "user1"
 // Execute query
 //$animals = $dbh->query($query);
 
-$categoryQuery = "SELECT category FROM animals GROUP BY category";
-
-$categories = $dbh->query($categoryQuery);
+$categoryQuery = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :category, '%')";
+$statement = $dbh->prepare($categoryQuery, array(PDO::FETCH_ASSOC));
+$categories = $dbh->categoryQuery($categoryQuery);
+ //$statement->execute(array(':category' => $category));
+//$categories = $statement->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +42,7 @@ $categories = $dbh->query($categoryQuery);
 <input type="submit" name="submit" vlaue="Choose options">
 
 </form>
+<!--code for the dropdown-->
 <?php
       if(isset($_POST['submit'])){
        if(!empty($_POST['category'])) {
