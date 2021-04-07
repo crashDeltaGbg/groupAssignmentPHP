@@ -18,7 +18,7 @@ error_reporting(E_ALL);
 <main>
    
     
-<form class="fullForm" action="index.php" method="POST">
+<!--<form class="fullForm" action="index.php" method="POST">
 
     <label for="selCategory">Select Category</label>
     <select name="selCategory" id="category">
@@ -27,7 +27,7 @@ error_reporting(E_ALL);
         <option value="category3">Cat3</option>
         <option value="category4">Cat4</option>
     </select>
-</form>
+</form>-->
 <form class="search" action="index.php" method="POST">
     <label for="searchWord">Search For Name or Category</label>
     <input type="text" name="searchWord">
@@ -45,7 +45,7 @@ error_reporting(E_ALL);
 // testing what is in the variable $search, will delete when finished
 var_dump($search);
 
-$dbh = new PDO('mysql:host=localhost;dbname=zoo', "user1", "1234");
+$dbh = new PDO('mysql:host=localhost;dbname=zoo;port=3307', "user1", "1234");
 
 //PDO + query for name and category-search
 $query = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :search, '%')";
