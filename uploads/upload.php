@@ -32,13 +32,13 @@
 
   if ($uploadOk == 0) {
     echo "Your file was not uploaded.";
-    echo '<br><a href="../rickard.php"><button class="btn">OK</button></a><br>';
+    echo '<br><a href="../file-upload.php"><button class="btn">OK</button></a><br>';
   } else {
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
       echo "The file " . htmlspecialchars(basename($_FILES["file"]["name"])) . " was uploaded.";
-      echo '<br><a href="../rickard.php"><button class="btn">OK</button></a><br>';
+      echo '<br><a href="../file-upload.php"><button class="btn">OK</button></a><br>';
     } else {
       echo "There was an error uploading your file.";
-      echo '<br><a href="../rickard.php"><button class="btn">OK</button></a><br>';
+      echo '<br><a href="../file-upload.php"><button class="btn">OK</button></a><br>';
     }
   }
