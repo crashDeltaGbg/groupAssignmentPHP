@@ -47,3 +47,7 @@ ul#nav li {
 #blockColorblindContent {
 	display: none;
 }
+
+img.animal-photo {
+	border-radius: 125px;
+}
