@@ -27,19 +27,23 @@ $categories = $dbh->query($categoryQuery);
 <main>
    
 <form class="search" action="index.php" method="POST">
+    <div>
     <label for="searchWord">Search For Name or Category</label>
     <input type="text" name="searchWord">
     <input class="btn" type="submit" name="search_button" value="Sök">
-    <label for="category">Drop-down list Animals:</label>
+    </div>
 
- <select name="category">
-    <option value="">All</option>
-    <?php
+    <div>
+    <label for="category">Drop-down list Animals:</label>
+    <select name="category">
+        <option value="">All</option>
+        <?php
         foreach ($categories as $category) {
           echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
         }
-    ?>
-</select>
+        ?>
+    </select>
+    </div>
 </form>
 
 <!-- code for the drop-down-->
