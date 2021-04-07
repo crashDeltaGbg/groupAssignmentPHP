@@ -3,6 +3,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 ?>
 <html lang="en">
 <head>
@@ -32,8 +33,22 @@ error_reporting(E_ALL);
     <label for="searchWord">Search For Name or Category</label>
     <input type="text" name="searchWord">
     <input class="btn" type="submit" name="search_button" value="Sök">
-</form>
+    <label> Dropdownlist Animals:</label>
 
+ <select name="category">
+        <option value="">All</option>
+        <?php
+        foreach ($categories as $category) {
+          echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
+        }
+        ?>
+</form>
+<!-- code for the drop-down-->
+<?php
+$categoryQuery = "SELECT category FROM animals GROUP BY category";
+?>
+
+$categories = $dbh->query($categoryQuery);
 <div class="resultsContainer">
 <!-- code for the search-function -->
 <?php
