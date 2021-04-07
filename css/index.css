@@ -1,72 +1,72 @@
 body {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
 }
 
 footer,
 header,
 main {
-	max-width: 100vw;
-	padding: 1rem 2rem;
+  max-width: 100vw;
+  padding: 1rem 2rem;
 }
 
 footer,
 header {
-	justify-content: center;
-	display: flex;
-	flex-direction: row;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 
 footer {
-	background-color: thistle;
-	font-weight: bolder;
-	text-align: center;
+  background-color: thistle;
+  font-weight: bolder;
+  text-align: center;
 }
 
 header {
-	background-color: lightcyan;
+  background-color: lightcyan;
 }
 
 main {
-	align-items: center;
-	background-color: #f5f5dc;
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
+  align-items: center;
+  background-color: #f5f5dc;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 ul#nav {
-	list-style-type: none;
-	padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 ul#nav li {
-	display: inline-block;
+  display: inline-block;
 }
 
 .fullForm {
-	display: flex;
-	flex-direction: column;
-	width: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 }
 .btn {
-	width: 100px;
+  width: 100px;
 }
 ul.animalsList {
-	list-style-type: none;
+  list-style-type: none;
 }
 li.animalsObject {
-	padding: 10px;
+  padding: 10px;
 }
 #blockColorblindContent {
-	display: none;
+  display: none;
 }
 
 img.animal-photo {
-	border-radius: 125px;
+  border-radius: 125px;
 }
 
 /* #search {
@@ -76,39 +76,77 @@ img.animal-photo {
 
 input,
 select {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
-
+div.resultsContainer {
+  width: 75%;
+}
 table.styledTable {
-	font-family: Arial, Helvetica, sans-serif;
-	border: 2px solid #ffc7f0;
-	background-color: #fff6c7;
-	width: 400px;
-	text-align: left;
-	border-collapse: collapse;
-	margin: auto;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 2px solid #ffc7f0;
+  background-color: #fff6c7;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  margin: auto;
 }
 table.styledTable td,
 table.styledTable th {
-	border: 1px solid #aaaaaa;
-	padding: 3px 2px;
+  border: 1px solid #aaaaaa;
+  padding: 3px 2px;
+}
+table th {
+  font-size: 0.5em;
+  text-transform: uppercase;
 }
 table.styledTable tbody td {
-	font-size: 13px;
+  font-size: 13px;
 }
 table.styledTable tr:nth-child(even) {
-	background: #eee5b9;
+  background: #eee5b9;
 }
 table.styledTable thead {
-	background: #ffc7f0;
+  background: #ffc7f0;
 }
 table.styledTable thead th {
-	font-size: 19px;
-	font-weight: bold;
-	color: #000000;
-	text-align: left;
-	border-left: 2px solid #e9b5db;
+  font-size: 19px;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  border-left: 2px solid #e9b5db;
 }
 table.styledTable thead th:first-child {
-	border-left: none;
+  border-left: none;
+}
+@media screen and (max-width: 600px) {
+  table.styledTable {
+    border: 0;
+  }
+  table thead {
+    border: none;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 }

@@ -70,13 +70,13 @@ $result = $statement->fetchAll();
 
 // testing that query works
 if ($result) {
-    echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
+    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th scope='col'>Birthday</th></tr></thead><tbody>";
     foreach ($result as $key => $animals) {
     echo "<tr>
-            <td>" . $key . "</td>
-            <td>" . $animals['name'] . "</td>
-            <td>" . $animals['category'] . "</td>
-            <td>" . $animals['birthday'] . "</td>
+            <td data-label='#'>" . $key . "</td>
+            <td data-label='Name'>" . $animals['name'] . "</td>
+            <td data-label='Category'>" . $animals['category'] . "</td>
+            <td data-label='Birthday'>" . $animals['birthday'] . "</td>
         </tr>";
     }
     echo "</tbody></table>";
