@@ -79,15 +79,6 @@ if ($result) {
     }
     echo "</tbody></table>";
 }
-
-if ($result) {
-    echo '<div id="animalImgs">';
-    foreach ($result as $animal) {
-        echo '<img class="animal-photo" src="./img/' . $animal['name'] . '.jpg">';
-    }
-    echo "</div>";
-}
-
 ?>
 </div>
 </main>
