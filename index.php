@@ -4,9 +4,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// code for the drop-down
+include "./includes/dbc.php";
 
-$dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=3307', "user1", "1234");
+// code for the drop-down
 //$animals = $dbh->query($query);
 $categoryQuery = "SELECT category FROM animals GROUP BY category";
 
