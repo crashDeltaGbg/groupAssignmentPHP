@@ -75,6 +75,10 @@ img.animal-photo {
 	width: 150px;
 }
 
+p.photo-credits {
+	font-size: x-small;
+}
+
 /* #search {
 	display: grid;
 	grid-template-rows: auto auto;
