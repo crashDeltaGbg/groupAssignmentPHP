@@ -24,3 +24,10 @@ Löst problemet med kopplingen till databasen under handledning
 Buggfixar
 Formaterat kod
 Jobbat mer med styling
+
+## Torsdag 8/4
+
+Arbetat mer med bilder och implementerat dem
+Gjort en php-funktion så bilderna motsvarar sökresultatet
+Gjort en funktion så att fotografen akrediteras
+Jobbat lite mer med css
