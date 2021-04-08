@@ -54,15 +54,24 @@ ul#nav li {
 form#search {
 	width: 75%;
 }
+
+.upload {
+	text-align: left;
+	width: 75%;
+}
+
 .btn {
 	width: 100px;
 }
+
 ul.animalsList {
 	list-style-type: none;
 }
+
 li.animalsObject {
 	padding: 10px;
 }
+
 #blockColorblindContent {
 	display: none;
 }
