@@ -67,7 +67,7 @@ $result = $statement->fetchAll();
 
 // rendering query into table
 if ($result) {
-    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th scope='col'>Birthday</th></tr></thead><tbody>";
+    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th><scope='col'>Birthday</th></tr></thead><tbody>";
     foreach ($result as $key => $animals) {
         echo "<tr>
             <td data-label='#'>" . $key . "</td>
@@ -78,6 +78,17 @@ if ($result) {
         </tr>";
     }
     echo "</tbody></table>";
+}
+
+if ($result) {
+    echo '<div id="animalImgs">';
+    foreach ($result as $animal) {
+        $credit = "";
+        include './includes/photoCredits.php';
+        echo '<div class="imgCard"><img class="animal-photo" src="./img/' . $animal['name'] . '.jpg" alt="' . $animal['name'] . '"><br>';
+        echo '<p class="photo-credits">' . $credit . '</p></div>';
+    }
+    echo "</div>";
 }
 
 ?>

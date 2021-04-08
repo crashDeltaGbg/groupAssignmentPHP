@@ -1,10 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap");
-
 body {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-	font-family: "Comic Sans MS", "Comic Neue";
 	height: 100vh;
 	margin: 0;
 }
@@ -68,10 +65,19 @@ li.animalsObject {
 	display: none;
 }
 
+div#animalImgs {
+	display: flex;
+	flex-direction: row;
+}
+
+div.imgCard {
+	padding: 1em;
+	max-width: 150px;
+}
+
 img.animal-photo {
 	border-radius: 75px;
 	height: 150px;
-	margin-top: 1em;
 	width: 150px;
 }
 
@@ -86,9 +92,9 @@ p.photo-credits {
 
 input,
 select {
-	font-family: "Comic Sans MS", "Comic Neue";
 	margin-bottom: 1em;
 }
+
 div.resultsContainer {
 	width: 75%;
 }
