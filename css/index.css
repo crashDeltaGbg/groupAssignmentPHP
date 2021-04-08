@@ -1,10 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap");
-
 body {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-	font-family: "Comic Sans MS", "Comic Neue";
 	height: 100vh;
 	margin: 0;
 }
@@ -70,7 +67,6 @@ li.animalsObject {
 
 img.animal-photo {
 	border-radius: 125px;
-	margin-top: 1em;
 }
 
 /* #search {
@@ -80,7 +76,6 @@ img.animal-photo {
 
 input,
 select {
-	font-family: "Comic Sans MS", "Comic Neue";
 	margin-bottom: 1em;
 }
 div.resultsContainer {
