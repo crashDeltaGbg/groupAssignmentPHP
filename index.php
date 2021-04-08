@@ -64,10 +64,10 @@ if ($searchCategory !== "") {
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
 $statement->execute(array(':search' => $search));
 $result = $statement->fetchAll();
-
+var_dump($result);
 // rendering query into table
 if ($result) {
-    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th><scope='col'>Birthday</th></tr></thead><tbody>";
+    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th scope='col'>Birthday</th></tr></thead><tbody>";
     foreach ($result as $key => $animals) {
         echo "<tr>
             <td data-label='#'>" . $key . "</td>
