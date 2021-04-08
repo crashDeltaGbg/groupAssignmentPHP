@@ -79,6 +79,7 @@ if ($result) {
     }
     echo "</tbody></table>";
 }
+
 ?>
 </div>
 </main>
