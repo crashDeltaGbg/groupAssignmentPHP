@@ -64,7 +64,7 @@ if ($searchCategory !== "") {
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
 $statement->execute(array(':search' => $search));
 $result = $statement->fetchAll();
-var_dump($result);
+
 // rendering query into table
 if ($result) {
     echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th scope='col'>Birthday</th></tr></thead><tbody>";
@@ -79,15 +79,6 @@ if ($result) {
     }
     echo "</tbody></table>";
 }
-
-if ($result) {
-    echo '<div id="animalImgs">';
-    foreach ($result as $animal) {
-        echo '<img class="animal-photo" src="./img/' . $animal['name'] . '.jpg">';
-    }
-    echo "</div>";
-}
-
 ?>
 </div>
 </main>
