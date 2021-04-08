@@ -34,47 +34,40 @@ $categories = $dbh->query($categoryQuery);
         <option value="">All</option>
         <?php
           foreach ($categories as $category) {
-            echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
+              echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
           }
           ?>       
     </select><br>
-    
     <input class="btn" type="submit" name="search_button" value="Sök">
 </form>
 
 <div class="resultsContainer">
 <!-- code for the search-function -->
 <?php
-    if (isset($_POST['search_button'])){
-        $search = $_POST['searchWord'];}
-    else {
-        $search = null;
-    }
+if (!isset($_POST['searchWord'])) {
+    $search = null;
+echo "You haven't searched anything yet";
+} elseif (isset($_POST['searchWord'])) {
+    $search = $_POST['searchWord'];
+}
 $searchCategory = "";
 if (isset($_POST['category'])) {
     $searchCategory = $_POST['category'];
 }
-// testing what is in the variable $search, will delete when finished
-// var_dump($search);
-
-// $dbh = new PDO('mysql:host=localhost;dbname=zoo;port=3307', "user1", "1234");
 
 //PDO + query for name and category-search
 $query = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :search, '%')";
 if ($searchCategory !== "") {
     $query .= " AND category='$searchCategory'";
 }
-// echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
+
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
-$statement->execute(array(':search' => $_POST['searchWord'],));
+$statement->execute(array(':search' => $search));
 $result = $statement->fetchAll();
 
-// testing that query works
-
-
-            // rendering query into table
+// rendering query into table
 if ($result) {
-    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th>scope='col'>Birthday</th></tr></thead><tbody>";
+    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th><scope='col'>Birthday</th></tr></thead><tbody>";
     foreach ($result as $key => $animals) {
         echo "<tr>
             <td data-label='#'>" . $key . "</td>
