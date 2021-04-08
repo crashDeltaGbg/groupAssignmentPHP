@@ -11,20 +11,6 @@ $dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=3307', "user1"
 $categoryQuery = "SELECT category FROM animals GROUP BY category";
 
 $categories = $dbh->query($categoryQuery);
-
-//code for the dropdown -->
-
-
-    //  if(isset($_POST['submit'])){
-      // if(!empty($_POST['category'])) {
-        //  $selected = $_POST['category'];
-         // echo 'You have chosen: ' . $selected;
-      //  } else {
-        //  echo 'Please select the value.';
-       // }
-     // }
-      
-
 ?>
 <html lang="en">
 
@@ -46,21 +32,15 @@ $categories = $dbh->query($categoryQuery);
     <label for="category">Drop-down list Animals:</label>
     <select name="category">
         <option value="">All</option>
-       <?php
+        <?php
           foreach ($categories as $category) {
             echo "<option value='" . $category['category'] . "'>" . $category['category'] . "</option>";
           }
-          ?>
-        
-       
-       
+          ?>       
     </select><br>
     
     <input class="btn" type="submit" name="search_button" value="Sök">
 </form>
-
-
-
 
 <div class="resultsContainer">
 <!-- code for the search-function -->
@@ -72,7 +52,7 @@ $categories = $dbh->query($categoryQuery);
     }
 $searchCategory = "";
 if (isset($_POST['category'])) {
-  $searchCategory = $_POST['category'];
+    $searchCategory = $_POST['category'];
 }
 // testing what is in the variable $search, will delete when finished
 // var_dump($search);
@@ -82,36 +62,34 @@ if (isset($_POST['category'])) {
 //PDO + query for name and category-search
 $query = "SELECT * FROM animals WHERE CONCAT(name, ' ', category) LIKE CONCAT('%', :search, '%')";
 if ($searchCategory !== "") {
-  $query .= " AND category='$searchCategory'";
+    $query .= " AND category='$searchCategory'";
 }
 // echo "<table class='styledTable'><thead><tr><th>#</th><th>Name</th><th>Category</th><th>Birthday</th></tr></thead><tbody>";
 $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
-$statement->execute(array(
-    ':search' => $_POST['searchWord'],
-));
+$statement->execute(array(':search' => $_POST['searchWord'],));
 $result = $statement->fetchAll();
 
 // testing that query works
 
 
             // rendering query into table
-            if ($result) {
-                echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th scope='col'>Birthday</th></tr></thead><tbody>";
-                foreach ($result as $key => $animals) {
-                    echo "<tr>
+if ($result) {
+    echo "<table class='styledTable'><thead><tr><th scope='col'>#</th><th scope='col'>Name</th><th scope='col'>Category</th><th>scope='col'>Birthday</th></tr></thead><tbody>";
+    foreach ($result as $key => $animals) {
+        echo "<tr>
             <td data-label='#'>" . $key . "</td>
             <td data-label='Name'>" . $animals['name'] . "</td>
             <td data-label='Category'>" . $animals['category'] . "</td>
             <td data-label='Birthday'>" . $animals['birthday'] . "</td>
 
         </tr>";
-                }
-                echo "</tbody></table>";
-            }
-            ?>
-        </div>
-    </main>
-    <footer><?php include "./includes/footer.php" ?></footer>
+    }
+    echo "</tbody></table>";
+}
+?>
+</div>
+</main>
+<footer><?php include "./includes/footer.php" ?></footer>
 </body>
 
 </html>
