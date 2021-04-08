@@ -69,8 +69,10 @@ li.animalsObject {
 }
 
 img.animal-photo {
-	border-radius: 125px;
+	border-radius: 75px;
+	height: 150px;
 	margin-top: 1em;
+	width: 150px;
 }
 
 /* #search {
