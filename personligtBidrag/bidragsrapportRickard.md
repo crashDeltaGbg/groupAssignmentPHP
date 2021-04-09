@@ -31,3 +31,7 @@ Arbetat mer med bilder och implementerat dem
 Gjort en php-funktion så bilderna motsvarar sökresultatet
 Gjort en funktion så att fotografen akrediteras
 Jobbat lite mer med css
+
+## Fredag 9/4
+
+Städat upp lite i koden och plockat bort överflödiga filer
