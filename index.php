@@ -1,13 +1,7 @@
 <?php
-// Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 include "./includes/dbc.php";
 
-// code for the drop-down
-//$animals = $dbh->query($query);
 $categoryQuery = "SELECT category FROM animals GROUP BY category";
 
 $categories = $dbh->query($categoryQuery);
@@ -42,7 +36,7 @@ $categories = $dbh->query($categoryQuery);
 </form>
 
 <div class="resultsContainer">
-<!-- code for the search-function -->
+    
 <?php
 
 if (!isset($_POST['searchWord'])) {
